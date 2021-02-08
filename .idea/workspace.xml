@@ -25,17 +25,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="14fc614e-eb56-4e19-a70b-1273e5878d24" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/phpunit.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/ProductiveController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/RequestForms/ProductiveApiAuthTokenRequest.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/index.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/projectPick.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/ProductiveCSVToTasks.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/ProductiveCSVToTasks.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Providers/RouteServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/RouteServiceProvider.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ProductiveController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ProductiveController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -191,7 +182,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1612780448809</updated>
-      <workItem from="1612780450387" duration="4263000" />
+      <workItem from="1612780450387" duration="10957000" />
     </task>
     <servers />
   </component>
@@ -214,14 +205,22 @@
       <screen x="0" y="0" width="1680" height="1010" />
     </state>
     <state x="583" y="417" key="ComposerInitDialogKey/0.0.1680.1010@0.0.1680.1010" timestamp="1612785866622" />
-    <state x="460" y="229" key="NewPhpClassDialog" timestamp="1612785754160">
+    <state x="460" y="229" key="NewPhpClassDialog" timestamp="1612791834554">
       <screen x="0" y="0" width="1680" height="1010" />
     </state>
-    <state x="460" y="229" key="NewPhpClassDialog/0.0.1680.1010@0.0.1680.1010" timestamp="1612785754160" />
-    <state x="644" y="428" key="NewPhpFileDialog" timestamp="1612786085628">
+    <state x="460" y="229" key="NewPhpClassDialog/0.0.1680.1010@0.0.1680.1010" timestamp="1612791834554" />
+    <state x="644" y="428" key="NewPhpFileDialog" timestamp="1612793188700">
       <screen x="0" y="0" width="1680" height="1010" />
     </state>
-    <state x="644" y="428" key="NewPhpFileDialog/0.0.1680.1010@0.0.1680.1010" timestamp="1612786085628" />
+    <state x="644" y="428" key="NewPhpFileDialog/0.0.1680.1010@0.0.1680.1010" timestamp="1612793188700" />
+    <state width="498" height="445" key="SwitcherDM" timestamp="1612789295584">
+      <screen x="0" y="0" width="1680" height="1010" />
+    </state>
+    <state width="498" height="445" key="SwitcherDM/0.0.1680.1010@0.0.1680.1010" timestamp="1612789295584" />
+    <state x="503" y="217" width="672" height="678" key="search.everywhere.popup" timestamp="1612789763125">
+      <screen x="0" y="0" width="1680" height="1010" />
+    </state>
+    <state x="503" y="217" width="672" height="678" key="search.everywhere.popup/0.0.1680.1010@0.0.1680.1010" timestamp="1612789763125" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
