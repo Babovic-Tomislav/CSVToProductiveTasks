@@ -13,6 +13,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'ProductiveController@index');
+Route::post('/project', 'ProductiveController@connect')
+    ->name('connectToProductive');
+
+
