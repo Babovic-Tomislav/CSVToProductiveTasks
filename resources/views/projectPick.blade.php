@@ -1,3 +1,3 @@
 @foreach($projects as $project)
-    <a href="{{route('taskList')}}" ><li>{{$project['attributes']['name']}}</li></a>
+    <a href="{{route('taskLists', ['project_id' => $project['id']])}}" ><li>{{$project['attributes']['name']}}</li></a>
 @endforeach
