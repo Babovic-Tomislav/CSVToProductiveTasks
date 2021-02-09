@@ -2,12 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Productive;
-use App\Models\ProductiveModel;
+
+use App\CSVParser\CsvParser;
+use App\RequestForms\CSVRequest;
 use App\RequestForms\ProductiveApiAuthTokenRequest;
+use App\Services\Productive;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cookie;
-use Illuminate\Support\Facades\Http;
+
 
 class ProductiveController extends Controller
 {
@@ -16,31 +18,21 @@ class ProductiveController extends Controller
         return view('index');
     }
 
-    public function connect(ProductiveApiAuthTokenRequest $request)
+    public function showProjectList(ProductiveApiAuthTokenRequest $request)
     {
         Cookie::queue('authToken', $request->authToken, 60);
 
-        $response = Http::withHeaders([
-            'Content-Type'      => 'application/vnd.api+json',
-            'X-Organization-Id' => '4085',
-            'X-Auth-Token'      => $request->authToken
-        ])
-            ->get('https://api.productive.io//api/v2/projects');
+        $projects = Productive::getProjectList($request->authToken);
 
-        //dd($response['data']);
-
-        return view('projectPick')->with('projects', $response['data']);
+        return view('projectPick')->with('projects', $projects);
     }
 
     public function taskList(Request $request)
     {
-        $response = Http::withHeaders([
-            'Content-Type'      => 'application/vnd.api+json',
-            'X-Organization-Id' => '4085',
-            'X-Auth-Token'      => $request->cookie('authToken')
-        ])
-            ->get('https://api.productive.io//api/v2/task_lists');
+        $taskLists = Productive::getTaskLists($request->cookie('authToken'));
 
-        return view('taskListPick')->with('taskList', $response['data']);
+        return view('taskListPick')->with('taskLists', $taskLists);
     }
+
+
 }

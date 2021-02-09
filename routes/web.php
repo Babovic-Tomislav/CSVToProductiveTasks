@@ -15,11 +15,12 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', 'ProductiveController@index');
 
-Route::post('/project', 'ProductiveController@connect')
+Route::post('/project', 'ProductiveController@showProjectList')
     ->name('connectToProductive');
 
 Route::get('/taskList', 'ProductiveController@taskList')
     ->name('taskList');
 
-Route::get('/uploadCSV', 'ProductiveController@uploadCSV')
-    ->name('uploadCSV');
+
+Route::post('/uploadTasks', 'ProductiveController@uploadTasks')
+    ->name('uploadTasks');
