@@ -27,12 +27,40 @@ class ProductiveController extends Controller
         return view('projectPick')->with('projects', $projects);
     }
 
-    public function taskList(Request $request)
+    public function taskLists(Request $request)
     {
+        Cookie::queue('project_id', $request->project_id);
+
         $taskLists = Productive::getTaskLists($request->cookie('authToken'));
 
         return view('taskListPick')->with('taskLists', $taskLists);
     }
 
+    public function uploadTasks(CSVRequest $request)
+    {
 
+        $file = $request->file('csv_file');
+
+
+
+        $parser = new CsvParser($file->getRealPath());
+
+        if( !$parser->validateCsv($file))
+        {
+            return back()->withErrors(['badCsv'=> 'Your .CSV headers do not meet the requirements.']);
+        }
+
+        Cookie::queue('task_list_id', $request->taskList);
+
+        $tasks = $parser->parse();
+
+        foreach ($tasks as $task) {
+            Productive::createTaskOnProductive($task,
+                $request->cookie('authToken'),
+                $request->cookie('project_id'),
+                $request->cookie('task_list_id'));
+        }
+
+        return redirect('/');
+    }
 }
