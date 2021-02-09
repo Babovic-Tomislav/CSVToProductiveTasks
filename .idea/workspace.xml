@@ -30,7 +30,6 @@
       <change beforePath="$PROJECT_DIR$/app/RequestForms/CSVRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/RequestForms/CSVRequest.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Services/Productive.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Services/Productive.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/projectPick.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/projectPick.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/taskListPick.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/taskListPick.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -187,7 +186,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1612780448809</updated>
-      <workItem from="1612780450387" duration="35970000" />
+      <workItem from="1612780450387" duration="39389000" />
     </task>
     <servers />
   </component>
@@ -238,10 +237,10 @@
       <screen x="0" y="0" width="1680" height="1010" />
     </state>
     <state width="498" height="445" key="SwitcherDM/0.0.1680.1010@0.0.1680.1010" timestamp="1612789295584" />
-    <state x="622" y="419" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1612864488476">
+    <state x="622" y="419" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1612882180242">
       <screen x="0" y="0" width="1680" height="1010" />
     </state>
-    <state x="622" y="419" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1680.1010@0.0.1680.1010" timestamp="1612864488476" />
+    <state x="622" y="419" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1680.1010@0.0.1680.1010" timestamp="1612882180242" />
     <state x="551" y="276" key="refactoring.ChangeSignatureDialog" timestamp="1612865626945">
       <screen x="0" y="0" width="1680" height="1010" />
     </state>

@@ -18,7 +18,7 @@ Route::get('/', 'ProductiveController@index');
 Route::post('/project', 'ProductiveController@showProjectList')
     ->name('connectToProductive');
 
-Route::get('/project/{project_id}/taskLists', 'ProductiveController@taskLists')
+Route::post('/project/{project_id}/taskLists', 'ProductiveController@taskLists')
     ->name('taskLists');
 
 Route::post('/uploadTasks', 'ProductiveController@uploadTasks')

@@ -18,14 +18,15 @@ class Productive
                    ->get('https://api.productive.io//api/v2/projects')['data'];
     }
 
-    public static function getTaskLists(string $authToken)
+    public static function getTaskLists(string $authToken, string $project_id)
     {
         return Http::withHeaders([
             'Content-Type'      => 'application/vnd.api+json',
             'X-Organization-Id' => env('ORGANISATION_ID'),
             'X-Auth-Token'      => $authToken
         ])
-                   ->get('https://api.productive.io//api/v2/task_lists')['data'];
+                   ->get('https://api.productive.io//api/v2/task_lists?filter[project_id]='
+                       . $project_id)['data'];
     }
 
     public static function createTaskOnProductive(

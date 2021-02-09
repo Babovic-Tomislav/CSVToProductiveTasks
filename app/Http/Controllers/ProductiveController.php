@@ -31,29 +31,31 @@ class ProductiveController extends Controller
     {
         Cookie::queue('project_id', $request->project_id);
 
-        $taskLists = Productive::getTaskLists($request->cookie('authToken'));
+        $taskLists = Productive::getTaskLists($request->cookie('authToken'),
+            $request->project_id);
+
+        return response()->json([
+            'taskLists' => $taskLists
+        ]);
 
         return view('taskListPick')->with('taskLists', $taskLists);
     }
 
     public function uploadTasks(CSVRequest $request)
     {
-
         $file = $request->file('csv_file');
-
 
 
         $parser = new CsvParser($file->getRealPath());
 
-        if( !$parser->validateCsv($file))
-        {
-            return back()->withErrors(['badCsv'=> 'Your .CSV headers do not meet the requirements.']);
+        if (!$parser->validateCsv($file)) {
+            return back()->withErrors(['badCsv' => 'Your .CSV headers do not meet the requirements.']);
         }
 
         Cookie::queue('task_list_id', $request->taskList);
 
         $tasks = $parser->parse();
-
+        dd($tasks);
         foreach ($tasks as $task) {
             Productive::createTaskOnProductive($task,
                 $request->cookie('authToken'),
