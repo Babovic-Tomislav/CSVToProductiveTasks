@@ -3,16 +3,24 @@
 namespace App\Http\Controllers;
 
 
-use App\CSVParser\CsvParser;
+use App\CSVParser\CsvParserInterface;
 use App\RequestForms\CSVRequest;
 use App\RequestForms\ProductiveApiAuthTokenRequest;
 use App\Services\Productive;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Cookie;
+use Symfony\Component\HttpFoundation\Response;
 
 
 class ProductiveController extends Controller
 {
+    private Productive $productive;
+
+    public function __construct(Productive $productive)
+    {
+        $this->productive = $productive;
+    }
+
     public function index()
     {
         return view('index');
@@ -20,49 +28,75 @@ class ProductiveController extends Controller
 
     public function showProjectList(ProductiveApiAuthTokenRequest $request)
     {
-        Cookie::queue('authToken', $request->authToken, 60);
+        $projects = $this->productive->getProjectList($request->authToken);
 
-        $projects = Productive::getProjectList($request->authToken);
+        if ($projects === false) {
+            return new JsonResponse('fail',
+                Response::HTTP_BAD_REQUEST
+            );
+        }
 
-        return view('projectPick')->with('projects', $projects);
+        if (empty($projects)) {
+            return new JsonResponse('No projects available',
+                Response::HTTP_BAD_REQUEST
+            );
+        }
+
+        return response()->json([
+            'projects' => $projects
+        ]);
     }
 
     public function taskLists(Request $request)
     {
-        Cookie::queue('project_id', $request->project_id);
+        $taskLists = $this->productive->getTaskLists(
+            $request->get('authToken'),
+            $request->route('projectId')
+        );
 
-        $taskLists = Productive::getTaskLists($request->cookie('authToken'),
-            $request->project_id);
+        if ($taskLists === false) {
+            return new JsonResponse('fail',
+                Response::HTTP_BAD_REQUEST
+            );
+        }
+
+        if (empty($taskLists)) {
+            return new JsonResponse('No task list available',
+                Response::HTTP_BAD_REQUEST
+            );
+        }
 
         return response()->json([
             'taskLists' => $taskLists
         ]);
-
-        return view('taskListPick')->with('taskLists', $taskLists);
     }
 
-    public function uploadTasks(CSVRequest $request)
-    {
-        $file = $request->file('csv_file');
+    public function uploadTasks(
+        CSVRequest $request,
+        CsvParserInterface $csvParser
+    ) {
+        $file = $request->file('csvFile');
 
-
-        $parser = new CsvParser($file->getRealPath());
-
-        if (!$parser->validateCsv($file)) {
-            return back()->withErrors(['badCsv' => 'Your .CSV headers do not meet the requirements.']);
+        if (!$csvParser->validateCsv($file)) {
+            return new JsonResponse('Wrong format of csv file',
+                Response::HTTP_BAD_REQUEST);
         }
+        $tasks = $csvParser->parse($file);
 
-        Cookie::queue('task_list_id', $request->taskList);
-
-        $tasks = $parser->parse();
-        dd($tasks);
         foreach ($tasks as $task) {
-            Productive::createTaskOnProductive($task,
-                $request->cookie('authToken'),
-                $request->cookie('project_id'),
-                $request->cookie('task_list_id'));
+            $response = $this->productive->createTaskOnProductive(
+                $task,
+                $request->authToken,
+                $request->project,
+                $request->taskLists);
+
+            if (!$response) {
+                return new JsonResponse('Something went wrong with uploading tasks.',
+                    Response::HTTP_BAD_REQUEST);
+            }
         }
 
-        return redirect('/');
+        return new JsonResponse('Successfully uploaded tasks on productive',
+            Response::HTTP_OK);
     }
 }

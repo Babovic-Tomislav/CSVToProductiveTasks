@@ -28,7 +28,7 @@
         $('#project').on('change', function (e) {
             var project_id = e.target.value;
             $.ajax({
-                url: "{{route('taskLists', ['project_id' => $project['id']])}}",
+                url: '/project/${project_id}/taskLists",
                 type: "POST",
                 data: {
                     project_id: project_id

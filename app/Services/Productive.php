@@ -5,75 +5,117 @@ namespace App\Services;
 
 
 use Illuminate\Support\Facades\Http;
+use Symfony\Component\HttpFoundation\Response;
+use Throwable;
+
 
 class Productive
 {
-    public static function getProjectList(string $authToken)
+    private string $url = 'https://api.productive.io//api/v2/';
+
+    public function getProjectList(string $authToken)
     {
-        return Http::withHeaders([
+        try {
+            $response = Http::withHeaders($this->makeHeader($authToken))
+                ->get($this->url . 'projects');
+
+            if ($response->status() != 200) {
+                return false;
+            }
+
+            return $response['data'];
+        } catch (throwable $e) {
+            report($e);
+        }
+    }
+
+    private function makeHeader(string $authToken)
+    {
+        return [
             'Content-Type'      => 'application/vnd.api+json',
             'X-Organization-Id' => env('ORGANISATION_ID'),
             'X-Auth-Token'      => $authToken
-        ])
-                   ->get('https://api.productive.io//api/v2/projects')['data'];
+        ];
     }
 
-    public static function getTaskLists(string $authToken, string $project_id)
+    public function getTaskLists(string $authToken, string $projectId)
     {
-        return Http::withHeaders([
-            'Content-Type'      => 'application/vnd.api+json',
-            'X-Organization-Id' => env('ORGANISATION_ID'),
-            'X-Auth-Token'      => $authToken
-        ])
-                   ->get('https://api.productive.io//api/v2/task_lists?filter[project_id]='
-                       . $project_id)['data'];
+        try {
+            $response = Http::withHeaders($this->makeHeader($authToken))
+                ->get($this->url . 'task_lists',
+                    ['filter[project_id]' => $projectId]);
+
+            if ($response->status() != 200) {
+                return false;
+            }
+
+            return $response['data'];
+        } catch (throwable $e) {
+            report($e);
+        }
     }
 
-    public static function createTaskOnProductive(
+    public function createTaskOnProductive(
         array $task,
         string $authToken,
-        string $project_id,
-        string $taskList_id
+        string $projectId,
+        string $taskListId
     ) {
-        Http::withHeaders([
-            'Content-Type'      => 'application/vnd.api+json',
-            'X-Organization-Id' => env('ORGANISATION_ID'),
-            'X-Auth-Token'      => $authToken
-        ])
-            ->withBody(self::prepareBody($task, $project_id, $taskList_id),
-                'application/json')
-            ->post('https://api.productive.io//api/v2/tasks');
+        try {
+            $response = Http::withHeaders($this->makeHeader($authToken))
+                ->withBody(
+                    $this->prepareBody(
+                        $task,
+                        $projectId,
+                        $taskListId
+                    ),
+                    'application/json'
+                )
+                ->post($this->url . 'tasks');
+
+            if ($response->status() != Response::HTTP_CREATED) {
+                return false;
+            }
+
+            return $response['data']['id'];
+        } catch (throwable $e) {
+            report($e);
+        }
     }
 
-    private static function prepareBody(
+    private function prepareBody(
         array $task,
-        string $project_id,
-        string $taskList_id
+        string $projectId,
+        string $taskListId
     ) {
-        return '{
-                  "data": {
-                            "type": "tasks",
-                        "attributes": {
-                                "title": "' . $task['title'] . '",
-                        "initial_estimate": ' . $task['time'] . ',
-                        "remaining_time": ' . $task['time'] . ',
-                        "description":"' . $task['description'] . '"
-                        },
-                        "relationships": {
-                                "project": {
-                                    "data": {
-                                        "type": "projects",
-                            "id": "' . $project_id . '"
-                            }
-                        },
-                        "task_list": {
-                                    "data": {
-                                        "type": "task_lists",
-                            "id": "' . $taskList_id . '"
-                            }
-                        }
-                        }
-                  }
-                }';
+        $body = [
+            "data" => [
+                "type"          => "tasks",
+                "attributes"    => [
+                    "title"            => $task['title'],
+                    "initial_estimate" => $task['time'],
+                    "remaining_time"   => $task['time'],
+                    "description"      => $task['description']
+                ],
+                "relationships" => [
+                    "project"   => [
+                        "data" => [
+                            "type" => "projects",
+                            "id"   => $projectId
+                        ]
+                    ],
+                    "task_list" => [
+                        "data" => [
+                            "type" => "task_lists",
+                            "id"   => $taskListId
+                        ]
+                    ]
+                ]
+            ]
+        ];
+
+        return json_encode($body);
     }
+
+
 }

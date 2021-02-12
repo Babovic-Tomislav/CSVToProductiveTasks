@@ -25,23 +25,43 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="14fc614e-eb56-4e19-a70b-1273e5878d24" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/ProductiveCSVToTasks.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/ProductiveCSVToTasks.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/CSVParser/CsvParser.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/CSVParser/CsvParser.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/CSVParser/CsvParserInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/CSVParser/CsvParserInterface.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Exceptions/Handler.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Exceptions/Handler.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ProductiveController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ProductiveController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/RequestForms/CSVRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/RequestForms/CSVRequest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/RequestForms/ProductiveApiAuthTokenRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/RequestForms/ProductiveApiAuthTokenRequest.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Services/Productive.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Services/Productive.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/app.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/index.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/projectPick.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/projectPick.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Feature/ExampleTest.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Unit/ExampleTest.php" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ComposerSettings" synchronizationState="SYNCHRONIZE">
+  <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
     <execution>
       <executable path="composer" />
     </execution>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -154,6 +174,7 @@
       <path value="$PROJECT_DIR$/vendor/psr/event-dispatcher" />
       <path value="$PROJECT_DIR$/vendor/psr/container" />
       <path value="$PROJECT_DIR$/vendor/egulias/email-validator" />
+      <path value="$PROJECT_DIR$/vendor/tightenco/ziggy" />
     </include_path>
   </component>
   <component name="ProjectId" id="1oCAxwm1ho4uQcLh0sQYIlqoAue" />
@@ -172,6 +193,11 @@
     <property name="php.override.implement.member.chooser.php.doc" value="NONE" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Mi\Desktop\praksa\productive\ProductiveCSVToTasks\tests\Feature" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration name="phpunit.xml" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
       <TestRunner scope="XML" />
@@ -186,7 +212,13 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1612780448809</updated>
-      <workItem from="1612780450387" duration="39389000" />
+      <workItem from="1612780450387" duration="39523000" />
+      <workItem from="1612942011377" duration="19334000" />
+      <workItem from="1612966425780" duration="2304000" />
+      <workItem from="1612982589972" duration="254000" />
+      <workItem from="1613029625954" duration="10861000" />
+      <workItem from="1613041883096" duration="8000" />
+      <workItem from="1613114123603" duration="527000" />
     </task>
     <servers />
   </component>
@@ -203,6 +235,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
     <state x="633" y="187" key="#com.intellij.ide.util.MemberChooser" timestamp="1612876030185">
@@ -213,10 +246,10 @@
       <screen x="0" y="0" width="1680" height="1010" />
     </state>
     <state x="1009" y="312" key="#com.intellij.ide.util.TreeClassChooserDialog/0.0.1680.1010@0.0.1680.1010" timestamp="1612857921699" />
-    <state x="570" y="260" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1612877941253">
+    <state x="570" y="260" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1613041179072">
       <screen x="0" y="0" width="1680" height="1010" />
     </state>
-    <state x="570" y="260" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1680.1010@0.0.1680.1010" timestamp="1612877941253" />
+    <state x="570" y="260" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1680.1010@0.0.1680.1010" timestamp="1613041179072" />
     <state x="583" y="417" key="ComposerInitDialogKey" timestamp="1612785866622">
       <screen x="0" y="0" width="1680" height="1010" />
     </state>
@@ -225,10 +258,10 @@
       <screen x="0" y="0" width="1680" height="1010" />
     </state>
     <state x="620" y="260" key="FileChooserDialogImpl/0.0.1680.1010@0.0.1680.1010" timestamp="1612797108260" />
-    <state x="924" y="247" key="NewPhpClassDialog" timestamp="1612875941945">
+    <state x="924" y="247" key="NewPhpClassDialog" timestamp="1612953139065">
       <screen x="0" y="0" width="1680" height="1010" />
     </state>
-    <state x="924" y="247" key="NewPhpClassDialog/0.0.1680.1010@0.0.1680.1010" timestamp="1612875941945" />
+    <state x="924" y="247" key="NewPhpClassDialog/0.0.1680.1010@0.0.1680.1010" timestamp="1612953139065" />
     <state x="644" y="428" key="NewPhpFileDialog" timestamp="1612793188700">
       <screen x="0" y="0" width="1680" height="1010" />
     </state>
@@ -237,28 +270,29 @@
       <screen x="0" y="0" width="1680" height="1010" />
     </state>
     <state width="498" height="445" key="SwitcherDM/0.0.1680.1010@0.0.1680.1010" timestamp="1612789295584" />
-    <state x="622" y="419" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1612882180242">
+    <state x="622" y="419" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1612959725490">
       <screen x="0" y="0" width="1680" height="1010" />
     </state>
-    <state x="622" y="419" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1680.1010@0.0.1680.1010" timestamp="1612882180242" />
-    <state x="551" y="276" key="refactoring.ChangeSignatureDialog" timestamp="1612865626945">
+    <state x="622" y="419" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1680.1010@0.0.1680.1010" timestamp="1612959725490" />
+    <state x="551" y="276" key="refactoring.ChangeSignatureDialog" timestamp="1612952587084">
       <screen x="0" y="0" width="1680" height="1010" />
     </state>
-    <state x="551" y="276" key="refactoring.ChangeSignatureDialog/0.0.1680.1010@0.0.1680.1010" timestamp="1612865626945" />
+    <state x="551" y="276" key="refactoring.ChangeSignatureDialog/0.0.1680.1010@0.0.1680.1010" timestamp="1612952587084" />
     <state x="496" y="233" key="run.anything.popup" timestamp="1612878142065">
       <screen x="0" y="0" width="1680" height="1010" />
     </state>
     <state x="496" y="233" key="run.anything.popup/0.0.1680.1010@0.0.1680.1010" timestamp="1612878142065" />
-    <state x="503" y="217" width="672" height="678" key="search.everywhere.popup" timestamp="1612865717141">
+    <state x="503" y="217" width="672" height="678" key="search.everywhere.popup" timestamp="1613040507850">
       <screen x="0" y="0" width="1680" height="1010" />
     </state>
-    <state x="503" y="217" width="672" height="678" key="search.everywhere.popup/0.0.1680.1010@0.0.1680.1010" timestamp="1612865717141" />
+    <state x="503" y="217" width="672" height="678" key="search.everywhere.popup/0.0.1680.1010@0.0.1680.1010" timestamp="1613040507850" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="php">
           <url>file://$PROJECT_DIR$/resources/views/index.blade.php</url>
+          <line>6</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
       </breakpoints>

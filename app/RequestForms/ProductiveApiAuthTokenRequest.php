@@ -16,7 +16,7 @@ class ProductiveApiAuthTokenRequest extends FormRequest
     public function rules()
     {
         return [
-            'authToken' => 'required'
+            'authToken' => 'required|min:30'
         ];
     }
 }

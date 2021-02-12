@@ -16,10 +16,10 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', 'ProductiveController@index');
 
 Route::post('/project', 'ProductiveController@showProjectList')
-    ->name('connectToProductive');
+    ->name('getProjectList');
 
-Route::post('/project/{project_id}/taskLists', 'ProductiveController@taskLists')
-    ->name('taskLists');
+Route::post('/project/{projectId}/taskLists', 'ProductiveController@taskLists')
+    ->name('getTaskLists');
 
-Route::post('/uploadTasks', 'ProductiveController@uploadTasks')
+Route::post('/', 'ProductiveController@uploadTasks')
     ->name('uploadTasks');
