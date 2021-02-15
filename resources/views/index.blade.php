@@ -9,11 +9,11 @@
     <input type="text" name="authToken" id="authToken">
 
     <h4>Project</h4>
-    <select name="project" id="project" >
+    <select name="projectId" id="project" >
     </select>
 
     <h4>Task list</h4>
-    <select name="taskLists" id="taskLists">
+    <select name="taskListId" id="taskLists">
     </select>
 
     <br><br>

@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', 'ProductiveController@index');
 
-Route::post('/project', 'ProductiveController@showProjectList')
+Route::post('/project', 'ProductiveController@projectList')
     ->name('getProjectList');
 
 Route::post('/project/{projectId}/taskLists', 'ProductiveController@taskLists')

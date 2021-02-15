@@ -51,6 +51,10 @@ return [
             'url' => env('AWS_URL'),
             'endpoint' => env('AWS_ENDPOINT'),
         ],
+        'partition' => [
+            'driver' => 'local',
+            'root'   => 'C:/', // not really sure about this
+        ],
 
     ],
 

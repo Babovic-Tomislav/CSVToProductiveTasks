@@ -26,12 +26,12 @@ class ProductiveController extends Controller
         return view('index');
     }
 
-    public function showProjectList(ProductiveApiAuthTokenRequest $request)
+    public function projectList(ProductiveApiAuthTokenRequest $request)
     {
-        $projects = $this->productive->getProjectList($request->authToken);
+        $projects = $this->productive->getProjectList($request->get('authToken'));
 
         if ($projects === false) {
-            return new JsonResponse('fail',
+            return new JsonResponse('Something went wrong getting the projects',
                 Response::HTTP_BAD_REQUEST
             );
         }
@@ -47,7 +47,7 @@ class ProductiveController extends Controller
         ]);
     }
 
-    public function taskLists(Request $request)
+    public function taskLists(ProductiveApiAuthTokenRequest $request)
     {
         $taskLists = $this->productive->getTaskLists(
             $request->get('authToken'),
@@ -55,13 +55,13 @@ class ProductiveController extends Controller
         );
 
         if ($taskLists === false) {
-            return new JsonResponse('fail',
+            return new JsonResponse('Something went wrong getting the task lists',
                 Response::HTTP_BAD_REQUEST
             );
         }
 
         if (empty($taskLists)) {
-            return new JsonResponse('No task list available',
+            return new JsonResponse("No task list available",
                 Response::HTTP_BAD_REQUEST
             );
         }
@@ -86,9 +86,10 @@ class ProductiveController extends Controller
         foreach ($tasks as $task) {
             $response = $this->productive->createTaskOnProductive(
                 $task,
-                $request->authToken,
-                $request->project,
-                $request->taskLists);
+                $request->get('authToken'),
+                $request->get('projectId'),
+                $request->get('taskListId')
+            );
 
             if (!$response) {
                 return new JsonResponse('Something went wrong with uploading tasks.',

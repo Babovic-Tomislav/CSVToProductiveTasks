@@ -17,7 +17,8 @@ class CSVRequest extends FormRequest
     {
         return [
             'csvFile' => 'required|file|mimes:csv',
-            'taskLists' => 'required'
+            'taskListId' => 'required',
+            'projectId' => 'required'
         ];
     }
 }
