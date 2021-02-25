@@ -11,7 +11,7 @@ use Throwable;
 
 class Productive
 {
-    private string $url = 'https://api.productive.io//api/v2/';
+    private $url = 'https://api.productive.io//api/v2/';
 
     public function getProjectList(string $authToken)
     {

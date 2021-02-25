@@ -13,7 +13,7 @@ use Symfony\Component\HttpFoundation\Response;
 
 class ProductiveController extends Controller
 {
-    private Productive $productive;
+    private $productive;
 
     public function __construct(Productive $productive)
     {

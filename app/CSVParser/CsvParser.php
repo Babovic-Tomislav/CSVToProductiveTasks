@@ -10,9 +10,9 @@ use Throwable;
 
 class CsvParser implements CsvParserInterface
 {
-    private array $csvData;
-    private array $tasks;
-    private array $csvFormat
+    private $csvData;
+    private $tasks;
+    private $csvFormat
         = [
             'Functionality',
             'Module',
