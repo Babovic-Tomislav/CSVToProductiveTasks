@@ -16,7 +16,7 @@ class CSVRequest extends FormRequest
     public function rules()
     {
         return [
-            'csvFile'    => 'required|mimes:csv,text',
+            'csvFile'    => 'required|mimes:csv,txt',
             'taskListId' => 'required',
             'projectId'  => 'required'
         ];
