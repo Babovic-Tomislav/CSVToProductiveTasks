@@ -11,7 +11,7 @@ class ProductiveProvider extends ServiceProvider
 {
     public function register()
     {
-        $this->app->bind(Productive::class, function (){
+        $this->app->bind(Productive::class, function () {
             return new Productive();
         });
     }

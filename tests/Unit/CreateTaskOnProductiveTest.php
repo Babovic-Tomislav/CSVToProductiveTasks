@@ -17,10 +17,10 @@ class CreateTaskOnProductiveTest extends TestCase
     public function testCreateTaskOnProductive()
     {
         $productive = new Productive();
-        $task = [
-            'title' => 'title',
+        $task       = [
+            'title'       => 'title',
             'description' => 'description',
-            'time' => 1000
+            'time'        => 1000
         ];
 
         $newTaskId = $productive->createTaskOnProductive(
@@ -31,15 +31,18 @@ class CreateTaskOnProductiveTest extends TestCase
         );
 
         $response = Http::withHeaders($this->makeHeader())
-            ->get('https://api.productive.io//api/v2/tasks/'.$newTaskId);
+            ->get('https://api.productive.io//api/v2/tasks/' . $newTaskId);
 
         //dodati provjere title, opis, time
-        $this->assertEquals($task['title'], $response['data']['attributes']['title']);
-        $this->assertEquals($task['description'], $response['data']['attributes']['description']);
-        $this->assertEquals($task['time'], $response['data']['attributes']['initial_estimate']);
+        $this->assertEquals($task['title'],
+            $response['data']['attributes']['title']);
+        $this->assertEquals($task['description'],
+            $response['data']['attributes']['description']);
+        $this->assertEquals($task['time'],
+            $response['data']['attributes']['initial_estimate']);
 
         Http::withHeaders($this->makeHeader())
-            ->delete('https://api.productive.io//api/v2/tasks/'.$newTaskId);
+            ->delete('https://api.productive.io//api/v2/tasks/' . $newTaskId);
     }
 
     private function makeHeader()

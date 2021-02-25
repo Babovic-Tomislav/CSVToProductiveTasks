@@ -9,7 +9,7 @@ use Illuminate\Http\UploadedFile;
 interface CsvParserInterface
 {
     /**
-     * @param   UploadedFile  $file uploaded csv file
+     * @param   UploadedFile  $file  uploaded csv file
      *
      * @return array of tasks in desired format
      */

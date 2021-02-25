@@ -44,6 +44,7 @@ class CsvParser implements CsvParserInterface
                 $this->setNewTask($lastFunctionality, $lastModule,
                     $csvTask);
             }
+
             return $this->tasks;
         } catch (throwable $e) {
             return false;

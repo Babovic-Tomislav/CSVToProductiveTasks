@@ -10,13 +10,13 @@ use Carbon\Laravel\ServiceProvider;
 
 class CsvParserProvider extends ServiceProvider
 {
-    public function register()
-    {
-        $this->app->bind(CsvParserInterface::class, CsvParser::class);
-    }
-
     public function boot()
     {
         $this->register();
+    }
+
+    public function register()
+    {
+        $this->app->bind(CsvParserInterface::class, CsvParser::class);
     }
 }

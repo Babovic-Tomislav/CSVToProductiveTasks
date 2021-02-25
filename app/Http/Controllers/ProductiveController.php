@@ -8,7 +8,6 @@ use App\RequestForms\CSVRequest;
 use App\RequestForms\ProductiveApiAuthTokenRequest;
 use App\Services\Productive;
 use Illuminate\Http\JsonResponse;
-use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
 
 
@@ -28,7 +27,8 @@ class ProductiveController extends Controller
 
     public function projectList(ProductiveApiAuthTokenRequest $request)
     {
-        $projects = $this->productive->getProjectList($request->get('authToken'));
+        $projects
+            = $this->productive->getProjectList($request->get('authToken'));
 
         if ($projects === false) {
             return new JsonResponse('Something went wrong getting the projects',

@@ -25,7 +25,7 @@ class ParseCsvTest extends TestCase
             'Description',
             'PERT time'
         ];
-        $body= [
+        $body   = [
             'Functionality name',
             'Module name',
             'Sub module name',
@@ -33,7 +33,7 @@ class ParseCsvTest extends TestCase
             '50'
         ];
 
-        $desiredResult []= [
+        $desiredResult [] = [
             'title'       => 'Functionality name::Module name::Sub module name',
             'description' => 'Description text',
             'time'        => 50 * 60
