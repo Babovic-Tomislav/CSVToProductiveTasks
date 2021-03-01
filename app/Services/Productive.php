@@ -17,13 +17,29 @@ class Productive
     {
         try {
             $response = Http::withHeaders($this->makeHeader($authToken))
-                ->get($this->url . 'projects');
+                ->get($this->url . 'projects', ['page[size]' => 10]);
 
             if ($response->status() != 200) {
                 return false;
             }
 
-            return $response['data'];
+            $projects = [];
+            $projects = $this->ResponseBuilder($response['data'], $projects);
+
+            while (array_key_exists('next',$response['links'])){
+                $response = Http::withHeaders($this->makeHeader($authToken))
+                    ->get(
+                        $response['links']['next']
+                    );
+
+                if ($response->status() != 200) {
+                    return false;
+                }
+
+                $projects = $this->ResponseBuilder($response['data'], $projects);
+            }
+
+            return $projects;
         } catch (throwable $e) {
             report($e);
         }
@@ -43,13 +59,31 @@ class Productive
         try {
             $response = Http::withHeaders($this->makeHeader($authToken))
                 ->get($this->url . 'task_lists',
-                    ['filter[project_id]' => $projectId]);
+                      [
+                          'filter[project_id]' => $projectId,
+                          'page[size]'         => 10
+                      ]);
 
             if ($response->status() != 200) {
                 return false;
             }
 
-            return $response['data'];
+            $taskLists = [];
+            $taskLists = $this->ResponseBuilder($response['data'], $taskLists);
+
+            while (array_key_exists('next',$response['links'])){
+                $response = Http::withHeaders($this->makeHeader($authToken))
+                    ->get(
+                        $response['links']['next']
+                    );
+
+                if ($response->status() != 200) {
+                    return false;
+                }
+
+                $taskLists = $this->ResponseBuilder($response['data'], $taskLists);
+            }
+            return $taskLists;
         } catch (throwable $e) {
             report($e);
         }
@@ -115,6 +149,15 @@ class Productive
         ];
 
         return json_encode($body);
+    }
+
+    private function ResponseBuilder(array $data, array $returnData = null)
+    {
+        foreach ($data as $d) {
+            $returnData[] = $d;
+        }
+        
+        return $returnData;
     }
 
 
